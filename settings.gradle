@@ -1,0 +1,2 @@
+rootProject.name = "Send Fund"
+include ':app'

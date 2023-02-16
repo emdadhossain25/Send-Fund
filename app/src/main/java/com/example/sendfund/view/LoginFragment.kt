@@ -6,15 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.sendfund.R
 import com.example.sendfund.databinding.FragmentLoginBinding
 import com.example.sendfund.viewmodel.LoginViewModel
 
 class LoginFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = LoginFragment()
-    }
+
 
 //    private lateinit var viewModel: LoginViewModel
 
@@ -36,6 +35,10 @@ class LoginFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 //        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        val action=LoginFragmentDirections.actionLoginFragmentToSendFundFragment()
+        binding.btnLogin.setOnClickListener {
+            findNavController().navigate(action)
+        }
         // TODO: Use the ViewModel
     }
 

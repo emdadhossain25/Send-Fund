@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_loginFragment_to_sendFundFragment"
             app:destination="@id/sendFundFragment" />
+        <argument
+            android:name="username"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/sendFundFragment"

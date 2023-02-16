@@ -35,7 +35,7 @@ class LoginFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 //        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
-        val action=LoginFragmentDirections.actionLoginFragmentToSendFundFragment()
+        val action=LoginFragmentDirections.actionLoginFragmentToSendFundFragment(username = "nadimh")
         binding.btnLogin.setOnClickListener {
             findNavController().navigate(action)
         }

@@ -19,8 +19,9 @@
         android:name="com.example.sendfund.view.SendFundFragment"
         android:label="fragment_send_fund"
         tools:layout="@layout/fragment_send_fund" >
+
         <argument
-            android:name="username"
-            app:argType="string" />
+            android:name="user"
+            app:argType="com.example.sendfund.model.LoginResponseModel" />
     </fragment>
 </navigation>

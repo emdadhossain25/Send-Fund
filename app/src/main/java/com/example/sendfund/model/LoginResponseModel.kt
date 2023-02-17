@@ -1,22 +1,25 @@
 package com.example.sendfund.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class LoginResponseModel(
     @SerializedName("data")
-    val dataFromResponse: Data,
+    val dataFromResponse: Data?,
     @SerializedName("error")
-    val error: String,
+    val error: String?,
     @SerializedName("messages")
-    val messages: List<String>,
+    val messages: List<String>?,
     @SerializedName("path")
-    val path: String,
+    val path: String?,
     @SerializedName("requestId")
-    val requestId: String,
+    val requestId: String?,
     @SerializedName("status")
     val status: Boolean = false,
     @SerializedName("statusCode")
-    val statusCode: Int,
+    val statusCode: Int?,
     @SerializedName("timeStamp")
-    val timestamp: String
-)
+    val timestamp: String?
+) : Parcelable

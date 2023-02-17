@@ -7,25 +7,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.navArgs
 import com.example.sendfund.R
 import com.example.sendfund.databinding.FragmentSendFundBinding
+import com.example.sendfund.model.LoginResponseModel
 import com.example.sendfund.viewmodel.SendFundViewModel
 
 class SendFundFragment : Fragment() {
 
     //    private lateinit var viewModel: SendFundViewModel
-    private lateinit var userName: String
+    private lateinit var userField: LoginResponseModel
     private var _binding: FragmentSendFundBinding? = null
     private val binding get() = _binding!!
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
-        arguments?.let {
-            userName = it.getString("username").toString()
-        }
-        Log.d("TAG", "onCreate: " + userName)
-    }
+    private val navigationArgs: SendFundFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,15 +34,15 @@ class SendFundFragment : Fragment() {
         return view
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-//        viewModel = ViewModelProvider(this).get(SendFundViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        userField = navigationArgs.user
+        Log.d("TAG", "onViewCreated: $userField")
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
 }

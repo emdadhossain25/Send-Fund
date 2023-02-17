@@ -1,5 +1,9 @@
 package com.example.sendfund.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class UserInfo(
     val Email: String,
     val Id: Int,
@@ -7,4 +11,4 @@ data class UserInfo(
     val UserName: String,
     val WalletAddress: String,
     val smartContactWallet: String
-)
+) : Parcelable

@@ -58,7 +58,7 @@ class LoginFragment : Fragment() {
                 }
                 is NetworkResult.Success -> {
                     val action =
-                        LoginFragmentDirections.actionLoginFragmentToSendFundFragment(username = "nadimh")
+                        LoginFragmentDirections.actionLoginFragmentToSendFundFragment(user = response.data!! )
                     findNavController().navigate(action)
 
                 }

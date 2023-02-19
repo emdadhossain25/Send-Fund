@@ -37,6 +37,7 @@ class SendFundFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         userField = navigationArgs.user
+
         Log.d("TAG", "onViewCreated: $userField")
     }
 

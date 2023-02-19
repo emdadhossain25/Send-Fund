@@ -19,14 +19,14 @@
 
     <style name="Widget.SendFund.Toolbar" parent="Widget.AppCompat.Toolbar">
         <item name="android:background">@color/background_color</item>
-        <item name="android:textViewStyle">@style/SendFundTitleText</item>
+        <item name="android:titleTextAppearance">@style/SendFundTitleText</item>
     </style>
 
-    <style name="SendFundTitleText" parent="@android:style/TextAppearance.Medium">
+    <style name="SendFundTitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:title">Send Fund</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">22sp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:fontFamily">@font/circular_font_std</item>
         <item name="fontFamily">@font/circular_font_std</item>
     </style>

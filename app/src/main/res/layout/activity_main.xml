@@ -7,18 +7,18 @@
     tools:context=".view.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         style="@style/Widget.SendFund.Toolbar"
-        >
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            android:layout_width="match_parent"
             style="@style/Widget.SendFund.Toolbar"
+            android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:titleTextAppearance="@style/SendFundTitleText"
-            app:title="@string/app_name">
+            app:menu="@menu/menu_layout"
+            app:title="@string/app_name"
+            app:titleTextAppearance="@style/SendFundTitleText">
 
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>

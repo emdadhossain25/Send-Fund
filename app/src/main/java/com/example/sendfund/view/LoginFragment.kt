@@ -6,10 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 
 import androidx.navigation.fragment.findNavController
+import com.example.sendfund.R
 import com.example.sendfund.common.NetworkResult
 import com.example.sendfund.databinding.FragmentLoginBinding
 import com.example.sendfund.viewmodel.LoginViewModel
@@ -58,7 +61,7 @@ class LoginFragment : Fragment() {
                 }
                 is NetworkResult.Success -> {
                     val action =
-                        LoginFragmentDirections.actionLoginFragmentToSendFundFragment(user = response.data!! )
+                        LoginFragmentDirections.actionLoginFragmentToSendFundFragment(user = response.data!!)
                     findNavController().navigate(action)
 
                 }

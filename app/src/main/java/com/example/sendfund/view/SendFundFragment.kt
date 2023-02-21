@@ -37,9 +37,9 @@ class SendFundFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         userField = navigationArgs.user
-        binding.tvUserName.text=userField.dataFromResponse?.userInfo?.UserName?:""+"-"+""
+        binding.tvName.text = userField.dataFromResponse?.userInfo?.UserName ?: ""
+        binding.tvBalance.text = userField.dataFromResponse?.accountInfo?.balance.toString()?:""
 
-        Log.d("TAG", "onViewCreated: $userField")
     }
 
 

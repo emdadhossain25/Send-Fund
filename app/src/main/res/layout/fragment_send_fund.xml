@@ -22,7 +22,9 @@
           android:fontFamily="@font/circular_font_std">
 
       </TextView>
+
       <TextView
+          android:id="@+id/tvName"
           android:layout_width="match_parent"
           android:backgroundTint="@color/white"
           android:layout_height="wrap_content"
@@ -32,7 +34,7 @@
           android:layout_marginTop="4dp"
           android:padding="20dp"
           android:textSize="15sp"
-          android:text="nadimh"></TextView>
+          />
 
       <androidx.constraintlayout.widget.ConstraintLayout
           android:layout_width="match_parent"
@@ -54,6 +56,36 @@
               style="@style/SendFundTitleText"
               app:layout_constraintEnd_toEndOf="parent"
               app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent" />
+
+          <TextView
+              android:id="@+id/tvCurrency"
+              android:layout_width="wrap_content"
+              android:padding="4dp"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="24dp"
+              style="@style/hintStyle"
+              android:gravity="center_horizontal"
+              android:textColor="@color/currency_color"
+              android:backgroundTint="@color/colorDisabled"
+              android:text="USSD"
+              android:fontFamily="@font/circular_font_std"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@+id/tvBalance" />
+
+          <Button
+              android:id="@+id/btnMax"
+              android:layout_width="60dp"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="207dp"
+              android:layout_marginTop="11dp"
+              android:layout_marginEnd="8dp"
+              android:text="max"
+              style="@style/MaterialButtonStyle"
+              android:textSize="10sp"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toEndOf="@+id/tvBalance"
               app:layout_constraintTop_toTopOf="parent" />
       </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -55,5 +55,9 @@
     <style name="MaterialButtonStyle" parent="Widget.MaterialComponents.Button.UnelevatedButton">
         <item name="backgroundTint">@color/login_button_states</item>
     </style>
+    <style name="MaterialButtonStyleMax" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="backgroundTint">@color/max_button_states</item>
+        <item name="android:textColor"></item>
+    </style>
 
 </resources>

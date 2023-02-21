@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Send Fund</string>
+    <string name="username_hint">\@username or wallet address</string>
+    <string name="prefix">\@</string>
 </resources>

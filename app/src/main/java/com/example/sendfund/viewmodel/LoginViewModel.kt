@@ -13,34 +13,40 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(
     private val repository: Repository,
 ) : ViewModel() {
+
+
+    private var _password = ""
+    val password: String
+        get() = _password
+
+    private var _username = ""
+    val username: String
+        get() = _username
+
+
     private val _response:
             MutableLiveData<NetworkResult<LoginResponseModel>> = MutableLiveData()
 
     val response: LiveData<NetworkResult<LoginResponseModel>> = _response
 
-    private val _userName: MutableLiveData<String> = MutableLiveData()
-    val userName: LiveData<String>
-        get() = _userName
 
-
-    private val _password: MutableLiveData<String> = MutableLiveData()
-    val password: LiveData<String>
-        get() = _password
-
-
-    init {
-        getUserName("")
-        getPassWord("")
+    override fun onCleared() {
+        super.onCleared()
     }
 
-    fun getUserName(name: String): Boolean {
-        _userName.value = name
-        return userName.value.isNullOrEmpty()
+    fun reinitializeData() {
+
+        _password = ""
+        _username = ""
+
     }
 
-    fun getPassWord(password: String): Boolean {
-        _password.value = password
-        return password.length == 4
+    fun isPasswordLengthFour(otp: String?): Boolean {
+        return (otp?.length ?: 0) == 4
+    }
+
+    fun isUserNameNotEmpty(name: String?): Boolean {
+        return (name?.length ?: 0) > 1
     }
 
     fun loginResponse() = viewModelScope.launch {

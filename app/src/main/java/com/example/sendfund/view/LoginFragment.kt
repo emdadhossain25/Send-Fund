@@ -1,7 +1,9 @@
 package com.example.sendfund.view
 
+import `in`.aabhasjindal.otptextview.OTPListener
 import android.os.Bundle
 import android.text.InputFilter.LengthFilter
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,10 +27,11 @@ class LoginFragment : Fragment() {
     // TODO implement UI to call login method using this viewmodel
     private val loginViewModel: LoginViewModel by viewModels()
 
-    private var otpNotLessThen4: Boolean = false
-    private var userNameNotEmpty: Boolean = false
+
     private var _binding: FragmentLoginBinding? = null
-    private val binding get() = _binding!!
+    private val binding
+        get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,25 +48,29 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//
-        loginViewModel.userName.observe(viewLifecycleOwner, { it ->
-            binding.etUserName.setText(it)
+        var otp = binding.otpView.otp
+        var userName =  binding.etUserName.text.toString()
+        binding.otpView.otpListener = object : OTPListener {
+            override fun onInteractionListener() {
+
+            }
+
+            override fun onOTPComplete(result: String?) {
+                Log.d("onOTPComplete: ", otp?:"")
+                otp = result
+                userName = binding.etUserName.text.toString()
+                binding.btnLogin.isEnabled =
+                    loginViewModel.isPasswordLengthFour(otp) && loginViewModel.isUserNameNotEmpty(userName)
+
+            }
+
+
         }
 
-        )
-        loginViewModel.password.observe(viewLifecycleOwner, { it ->
-            binding.otpView.setOTP(it)
-
-        })
 
 
-        if (userNameNotEmpty == true && otpNotLessThen4 == true) {
-            binding.btnLogin.isEnabled = true
-            binding.btnLogin.setOnClickListener {
-                callLogin()
-            }
-        } else {
-            binding.btnLogin.isEnabled = false
+        binding.btnLogin.setOnClickListener {
+            callLogin()
         }
     }
 
@@ -73,6 +80,7 @@ class LoginFragment : Fragment() {
             when (response) {
                 is NetworkResult.Error -> {
                     Toast.makeText(requireActivity(), response.message, Toast.LENGTH_LONG).show()
+                    loginViewModel.reinitializeData()
                 }
                 is NetworkResult.Loading -> {
 

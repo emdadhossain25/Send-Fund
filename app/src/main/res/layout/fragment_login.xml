@@ -51,22 +51,21 @@
 
         <in.aabhasjindal.otptextview.OtpTextView
             android:id="@+id/otpView"
-            android:textColor="@color/black"
-            app:height="40dp"
-            app:width="40dp"
-            app:bar_enabled="true"
-            app:bar_height="2dp"
-            app:length="4"
-            app:hide_otp="true"
-            app:bar_inactive_color="@color/black"
-            app:bar_active_color="@color/black"
-            app:otp_text_size="24sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:bar_active_color="@color/black"
+            app:bar_enabled="true"
+            app:bar_height="2dp"
+            app:bar_inactive_color="@color/black"
+            app:height="40dp"
+            app:hide_otp="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vg_user_name"
-             />
+            app:length="4"
+            app:otp_text_size="24sp"
+            app:width="40dp" />
         <!--        <ViewAnimator-->
         <!--            android:id="@+id/otpView"-->
         <!--            android:layout_width="wrap_content"-->
@@ -81,6 +80,7 @@
             android:id="@+id/btn_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:enabled="false"
             android:text="Login"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -13,15 +13,17 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-
+            app:hintTextAppearance="@style/hintStyleBox"
             android:id="@+id/vg_user_name"
+            android:padding="4dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxStrokeWidth="0dp"
-            app:hintTextAppearance="@style/hintStyle"
+
             app:boxStrokeWidthFocused="0dp"
             android:hint="@string/username_hint"
             app:hintTextColor="@color/hint_color"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

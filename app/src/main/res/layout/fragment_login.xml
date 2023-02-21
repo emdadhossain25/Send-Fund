@@ -6,11 +6,11 @@
     android:layout_height="match_parent">
 
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp">
-
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/vg_user_name"
@@ -47,6 +47,8 @@
 
 
         </com.google.android.material.textfield.TextInputLayout>
+
+
 
 
         <in.aabhasjindal.otptextview.OtpTextView
@@ -91,5 +93,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/otpView" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:indicatorColor="@color/red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_login"
+            app:showAnimationBehavior="outward">
+
+        </com.google.android.material.progressindicator.CircularProgressIndicator>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </ScrollView>

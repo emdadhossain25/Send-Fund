@@ -81,14 +81,16 @@ class LoginFragment : Fragment() {
                 is NetworkResult.Error -> {
                     Toast.makeText(requireActivity(), response.message, Toast.LENGTH_LONG).show()
                     loginViewModel.reinitializeData()
+                    binding.indicator.visibility=View.GONE
                 }
                 is NetworkResult.Loading -> {
-
+                    binding.indicator.visibility=View.VISIBLE
                 }
                 is NetworkResult.Success -> {
                     val action =
                         LoginFragmentDirections.actionLoginFragmentToSendFundFragment(user = response.data!!)
                     findNavController().navigate(action)
+                    binding.indicator.visibility=View.GONE
 
                 }
             }

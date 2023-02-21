@@ -47,22 +47,25 @@ class SendFundFragment : Fragment() {
             "Balance" + " ${userField.dataFromResponse?.accountInfo?.currency}" + " ${userField.dataFromResponse?.accountInfo?.balance}"
         binding.etBalance.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                TODO("Not yet implemented")
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                var valueiInserted = p0.toString().toInt()
-                var balance = userField.dataFromResponse?.accountInfo?.balance?.toInt() ?: 0
-                if (valueiInserted > balance
-                ) {
-                    binding.rlError.visibility = View.GONE
-                } else {
-                    binding.rlError.visibility = View.VISIBLE
+                try {
+
+                    var valueiInserted = p0.toString().toInt()
+                    var balance = userField.dataFromResponse?.accountInfo?.balance?.toInt() ?: 0
+                    if (valueiInserted > balance
+                    ) {
+                        binding.rlError.visibility = View.GONE
+                    } else {
+                        binding.rlError.visibility = View.VISIBLE
+                    }
+                } catch (_e: java.lang.NumberFormatException) {
+                    Log.d("onTextChanged: ", _e.message)
                 }
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                TODO("Not yet implemented")
             }
 
         })

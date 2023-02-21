@@ -76,7 +76,7 @@
             <TextView
                 android:id="@+id/tvbalanceBottom"
                 style="@style/hintStyle"
-                android:layout_width="40dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/colorDisabled"
                 android:fontFamily="@font/circular_font_std"

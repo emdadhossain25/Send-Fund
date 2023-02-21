@@ -30,4 +30,12 @@
         <item name="android:fontFamily">@font/circular_font_std</item>
         <item name="fontFamily">@font/circular_font_std</item>
     </style>
+
+    <style name="hintStyle" parent="@style/TextAppearance.AppCompat">
+        <item name="android:textColor">@color/background_color</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/circular_font_std</item>
+        <item name="fontFamily">@font/circular_font_std</item>
+    </style>
 </resources>

@@ -76,12 +76,18 @@
         <!--            app:layout_constraintTop_toBottomOf="@id/vg_user_name"-->
         <!--            app:spaceBetween="20" />-->
 
-        <Button
+        <com.google.android.material.button.MaterialButton
+
             android:id="@+id/btn_login"
-            android:layout_width="wrap_content"
+            style="@style/MaterialButtonStyle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:enabled="false"
-            android:text="Login"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/circular_font_std"
+            android:text="Continue"
+            android:textSize="18sp"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/otpView" />

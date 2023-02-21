@@ -30,7 +30,7 @@
             app:prefixText="@string/prefix">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/cost_of_service_edit_text"
+                android:id="@+id/etUserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text">
@@ -60,7 +60,6 @@
             app:hide_otp="true"
             app:bar_inactive_color="@color/black"
             app:bar_active_color="@color/black"
-            app:otp="1234"
             app:otp_text_size="24sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

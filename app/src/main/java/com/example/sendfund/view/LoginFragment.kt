@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 
 import androidx.navigation.fragment.findNavController
@@ -24,7 +25,8 @@ class LoginFragment : Fragment() {
     // TODO implement UI to call login method using this viewmodel
     private val loginViewModel: LoginViewModel by viewModels()
 
-
+    private var otpNotLessThen4: Boolean = false
+    private var userNameNotEmpty: Boolean = false
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(
@@ -40,12 +42,28 @@ class LoginFragment : Fragment() {
         return view
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-//        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
-        binding.btnLogin.setOnClickListener {
-            callLogin()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+//
+        loginViewModel.userName.observe(viewLifecycleOwner, { it ->
+            binding.etUserName.setText(it)
+        }
+
+        )
+        loginViewModel.password.observe(viewLifecycleOwner, { it ->
+            binding.otpView.setOTP(it)
+
+        })
+
+
+        if (userNameNotEmpty == true && otpNotLessThen4 == true) {
+            binding.btnLogin.isEnabled = true
+            binding.btnLogin.setOnClickListener {
+                callLogin()
+            }
+        } else {
+            binding.btnLogin.isEnabled = false
         }
     }
 

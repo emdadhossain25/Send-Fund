@@ -18,6 +18,31 @@ class LoginViewModel @Inject constructor(
 
     val response: LiveData<NetworkResult<LoginResponseModel>> = _response
 
+    private val _userName: MutableLiveData<String> = MutableLiveData()
+    val userName: LiveData<String>
+        get() = _userName
+
+
+    private val _password: MutableLiveData<String> = MutableLiveData()
+    val password: LiveData<String>
+        get() = _password
+
+
+    init {
+        getUserName("")
+        getPassWord("")
+    }
+
+    fun getUserName(name: String): Boolean {
+        _userName.value = name
+        return userName.value.isNullOrEmpty()
+    }
+
+    fun getPassWord(password: String): Boolean {
+        _password.value = password
+        return password.length == 4
+    }
+
     fun loginResponse() = viewModelScope.launch {
         repository.login().collect { values ->
             _response.value = values

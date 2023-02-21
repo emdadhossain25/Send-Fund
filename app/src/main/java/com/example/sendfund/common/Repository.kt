@@ -13,11 +13,11 @@ import javax.inject.Inject
 class Repository @Inject constructor(
     private val remoteDataSource: RemoteDataSource
 ) : BaseApiResponse() {
-    suspend fun login(): Flow<NetworkResult<LoginResponseModel>> {
+    suspend fun login(username: String, password: String): Flow<NetworkResult<LoginResponseModel>> {
 
         return flow {
             emit(safeApiCall {
-                remoteDataSource.loginPost()
+                remoteDataSource.loginPost(username,password)
             })
         }.flowOn(Dispatchers.IO)
     }

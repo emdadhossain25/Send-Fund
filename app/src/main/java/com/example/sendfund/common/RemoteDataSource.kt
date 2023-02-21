@@ -4,11 +4,11 @@ import com.example.sendfund.model.LoginRequestModel
 import javax.inject.Inject
 
 class RemoteDataSource @Inject constructor(private val loginService: LoginService) {
-    suspend fun loginPost() = loginService
+    suspend fun loginPost(username: String, password: String) = loginService
         .loginUser(
             LoginRequestModel(
-                "1234",
-                "nadimh"
+                password,
+                username
             )
         )
 }

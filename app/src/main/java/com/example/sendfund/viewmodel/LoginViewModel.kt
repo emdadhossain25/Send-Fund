@@ -1,6 +1,5 @@
 package com.example.sendfund.viewmodel
 
-import android.app.Application
 import androidx.lifecycle.*
 import com.example.sendfund.common.NetworkResult
 import com.example.sendfund.common.Repository
@@ -49,8 +48,8 @@ class LoginViewModel @Inject constructor(
         return (name?.length ?: 0) > 1
     }
 
-    fun loginResponse() = viewModelScope.launch {
-        repository.login().collect { values ->
+    fun loginResponse(username: String, password: String) = viewModelScope.launch {
+        repository.login(username,password).collect { values ->
             _response.value = values
         }
     }

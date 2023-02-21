@@ -2,20 +2,15 @@ package com.example.sendfund.view
 
 import `in`.aabhasjindal.otptextview.OTPListener
 import android.os.Bundle
-import android.text.InputFilter.LengthFilter
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.navigation.findNavController
 
 import androidx.navigation.fragment.findNavController
-import com.example.sendfund.R
 import com.example.sendfund.common.NetworkResult
 import com.example.sendfund.databinding.FragmentLoginBinding
 import com.example.sendfund.viewmodel.LoginViewModel
@@ -70,12 +65,13 @@ class LoginFragment : Fragment() {
 
 
         binding.btnLogin.setOnClickListener {
-            callLogin()
+            callLogin(userName, otp)
         }
     }
 
-    private fun callLogin() {
-        loginViewModel.loginResponse()
+    private fun callLogin(username: String, password: String) {
+
+        loginViewModel.loginResponse(username,password)
         loginViewModel.response.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is NetworkResult.Error -> {
@@ -87,6 +83,7 @@ class LoginFragment : Fragment() {
                     binding.indicator.visibility=View.VISIBLE
                 }
                 is NetworkResult.Success -> {
+                    loginViewModel.reinitializeData()
                     val action =
                         LoginFragmentDirections.actionLoginFragmentToSendFundFragment(user = response.data!!)
                     findNavController().navigate(action)

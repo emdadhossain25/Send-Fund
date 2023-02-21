@@ -39,54 +39,54 @@
       <androidx.constraintlayout.widget.ConstraintLayout
           android:layout_width="match_parent"
           android:layout_marginTop="15dp"
-
+          android:padding="16dp"
+          android:background="@drawable/rectangle"
           android:backgroundTint="@color/colorDisabled"
           android:layout_height="100dp">
 
           <TextView
               android:id="@+id/tvBalance"
+              style="@style/SendFundTitleText"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:layout_marginStart="16dp"
-              android:layout_marginTop="18dp"
-              android:layout_marginEnd="303dp"
               android:backgroundTint="@color/colorDisabled"
               android:text="450"
               android:textSize="25sp"
-              style="@style/SendFundTitleText"
-              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintBottom_toTopOf="@+id/tvCurrency"
+              app:layout_constraintEnd_toStartOf="@+id/btnMax"
               app:layout_constraintStart_toStartOf="parent"
               app:layout_constraintTop_toTopOf="parent" />
 
           <TextView
               android:id="@+id/tvCurrency"
-              android:layout_width="wrap_content"
-              android:padding="4dp"
-              android:layout_height="wrap_content"
-              android:layout_marginStart="24dp"
               style="@style/hintStyle"
-              android:gravity="center_horizontal"
-              android:textColor="@color/currency_color"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
               android:backgroundTint="@color/colorDisabled"
-              android:text="USSD"
               android:fontFamily="@font/circular_font_std"
+              android:gravity="center_horizontal"
+              android:padding="4dp"
+              android:text="USSD"
+              android:textColor="@color/currency_color"
               app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintEnd_toStartOf="@+id/btnMax"
+              app:layout_constraintHorizontal_bias="0.07"
               app:layout_constraintStart_toStartOf="parent"
               app:layout_constraintTop_toBottomOf="@+id/tvBalance" />
 
           <Button
               android:id="@+id/btnMax"
+              style="@style/MaterialButtonStyle"
               android:layout_width="60dp"
               android:layout_height="wrap_content"
               android:layout_marginStart="207dp"
-              android:layout_marginTop="11dp"
-              android:layout_marginEnd="8dp"
               android:text="max"
-              style="@style/MaterialButtonStyle"
               android:textSize="10sp"
+              app:layout_constraintBottom_toBottomOf="parent"
               app:layout_constraintEnd_toEndOf="parent"
               app:layout_constraintStart_toEndOf="@+id/tvBalance"
-              app:layout_constraintTop_toTopOf="parent" />
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintVertical_bias="0.01999998" />
       </androidx.constraintlayout.widget.ConstraintLayout>
 
   </LinearLayout>
